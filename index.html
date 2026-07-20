@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>克罗地亚 & 斯洛文尼亚 · 国庆自驾之旅</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #1a1a2e;
+    color: #fff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1.5rem;
+    overflow-x: hidden;
+  }
+
+  .hero {
+    text-align: center;
+    max-width: 600px;
+    width: 100%;
+  }
+
+  .badge {
+    display: inline-block;
+    padding: 0.4rem 1.2rem;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 50px;
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    margin-bottom: 1.5rem;
+    color: rgba(255,255,255,0.8);
+  }
+
+  h1 {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 2.2rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 3rem;
+  }
+
+  .meta {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 3rem;
+  }
+
+  .cards {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    width: 100%;
+    max-width: 500px;
+  }
+
+  @media (min-width: 640px) {
+    .cards { grid-template-columns: 1fr 1fr; max-width: 700px; }
+  }
+
+  .card {
+    display: block;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 20px;
+    padding: 2rem 1.5rem;
+    text-decoration: none;
+    color: #fff;
+    transition: all 0.3s ease;
+    text-align: center;
+  }
+
+  .card:hover {
+    background: rgba(255,255,255,0.1);
+    border-color: rgba(255,255,255,0.25);
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+  }
+
+  .card-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .card-title {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .card-desc {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.6;
+  }
+
+  .card-arrow {
+    margin-top: 1.5rem;
+    font-size: 1.5rem;
+    color: #F4A261;
+    transition: transform 0.3s;
+  }
+
+  .card:hover .card-arrow {
+    transform: translateX(8px);
+  }
+
+  .footer {
+    margin-top: 3rem;
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.4);
+    text-align: center;
+  }
+
+  .highlight {
+    color: #F4A261;
+  }
+
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero, .cards, .footer {
+    animation: fadeInUp 0.8s ease forwards;
+  }
+
+  .cards { animation-delay: 0.2s; }
+  .footer { animation-delay: 0.4s; }
+</style>
+</head>
+<body>
+
+  <div class="hero">
+    <div class="badge">🇨🇳 国庆长假 · 2026</div>
+    <h1>克罗地亚 <span class="highlight">&</span> 斯洛文尼亚</h1>
+    <p class="subtitle">亚得里亚海自驾之旅 · 8天7晚</p>
+    <div class="meta">
+      <span>📅 10.02 - 10.09</span>
+      <span>✈️ 北京往返</span>
+      <span>🚗 全程自驾</span>
+    </div>
+  </div>
+
+  <div class="cards">
+    <a href="north-to-south.html" class="card">
+      <div class="card-icon">⬇️</div>
+      <div class="card-title">由北向南</div>
+      <div class="card-desc">萨格勒布 → 卢布尔雅那 → 布莱德湖 → 扎达尔 → 斯普利特 → 杜布罗夫尼克</div>
+      <div class="card-arrow">→</div>
+    </a>
+
+    <a href="south-to-north.html" class="card">
+      <div class="card-icon">⬆️</div>
+      <div class="card-title">由南向北</div>
+      <div class="card-desc">萨格勒布 → 杜布罗夫尼克 → 斯普利特 → 扎达尔 → 布莱德湖 → 卢布尔雅那</div>
+      <div class="card-arrow">→</div>
+    </a>
+  </div>
+
+  <div class="footer">
+    <p>包含签证指南、每日行程、景点推荐、行前贴士与出发清单</p>
+  </div>
+
+</body>
+</html>
