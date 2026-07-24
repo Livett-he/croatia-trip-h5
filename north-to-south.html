@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>克罗地亚 & 斯洛文尼亚 · 由北向南</title>
+<title>克罗地亚 & 斯洛文尼亚 · 国庆自驾之旅</title>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -20,7 +20,6 @@
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
-
   html { scroll-behavior: smooth; -webkit-tap-highlight-color: transparent; }
 
   body {
@@ -44,11 +43,17 @@
     overflow: hidden;
   }
 
-  .cover::before {
-    content: '';
+  .cover-bg {
     position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;
-    background: url('https://images.unsplash.com/photo-1555992336-fb0d29498b13?w=800&q=80') center/cover;
+    background: linear-gradient(135deg, #1a3a5c 0%, #2d5a87 50%, #4a7fb5 100%);
+    z-index: 0;
+  }
+
+  .cover-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
     opacity: 0.35;
     filter: blur(2px);
   }
@@ -91,7 +96,6 @@
     gap: 1.5rem;
     justify-content: center;
     flex-wrap: wrap;
-    margin-bottom: 1.5rem;
   }
 
   .cover-meta-item {
@@ -100,39 +104,6 @@
     gap: 0.4rem;
     color: rgba(255,255,255,0.7);
     font-size: 0.9rem;
-  }
-
-  .version-switch {
-    position: relative;
-    z-index: 2;
-    display: inline-flex;
-    gap: 0.5rem;
-    background: rgba(255,255,255,0.15);
-    backdrop-filter: blur(10px);
-    border-radius: 50px;
-    padding: 0.3rem;
-    border: 1px solid rgba(255,255,255,0.2);
-  }
-
-  .version-switch a {
-    display: block;
-    padding: 0.5rem 1rem;
-    border-radius: 50px;
-    color: rgba(255,255,255,0.8);
-    text-decoration: none;
-    font-size: 0.85rem;
-    transition: all 0.3s;
-  }
-
-  .version-switch a.active {
-    background: rgba(255,255,255,0.9);
-    color: var(--dark);
-    font-weight: 500;
-  }
-
-  .version-switch a:not(.active):hover {
-    background: rgba(255,255,255,0.1);
-    color: #fff;
   }
 
   .scroll-hint {
@@ -385,12 +356,24 @@
     color: var(--dark);
   }
 
-  .day-image {
+  .day-image-wrap {
     width: 100%;
     height: 200px;
-    object-fit: cover;
     border-radius: 12px;
     margin-bottom: 1rem;
+    overflow: hidden;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .day-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    position: relative;
+    z-index: 1;
   }
 
   .day-desc {
@@ -420,6 +403,7 @@
     padding: 1rem;
     font-size: 0.85rem;
     color: var(--text-light);
+    margin-bottom: 1rem;
   }
 
   .day-info-item {
@@ -435,6 +419,64 @@
 
   .day-info-item strong {
     color: var(--text);
+  }
+
+  .day-food {
+    background: linear-gradient(135deg, #fff8f0 0%, #fff5e6 100%);
+    border: 1px solid #ffe4c4;
+    border-radius: 10px;
+    padding: 1rem;
+  }
+
+  .day-food-title {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--secondary);
+    margin-bottom: 0.6rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .day-food-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .day-food-list li {
+    font-size: 0.85rem;
+    color: var(--text);
+    padding: 0.35rem 0;
+    border-bottom: 1px dashed #ffe4c4;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .day-food-list li:last-child {
+    border-bottom: none;
+  }
+
+  .food-name {
+    font-weight: 500;
+  }
+
+  .food-tag {
+    font-size: 0.7rem;
+    padding: 0.1rem 0.4rem;
+    background: rgba(232, 106, 60, 0.1);
+    color: var(--secondary);
+    border-radius: 4px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .food-note {
+    font-size: 0.75rem;
+    color: var(--text-light);
+    margin-top: 0.2rem;
   }
 
   .tips-grid {
@@ -591,6 +633,8 @@
     .nav-links { display: none; }
     .timeline { padding-left: 1.5rem; }
     .day-card::before { left: -1.25rem; width: 10px; height: 10px; }
+    .day-food-list li { flex-direction: column; gap: 0.2rem; }
+    .food-tag { align-self: flex-start; }
   }
 </style>
 </head>
@@ -598,6 +642,9 @@
 
 <!-- Cover -->
 <section class="cover" id="cover">
+  <div class="cover-bg">
+    <img src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?w=1200&q=80" alt="" onerror="this.style.display='none'">
+  </div>
   <div class="cover-content">
     <div class="cover-badge">🇨🇳 国庆长假 · 2026</div>
     <h1>克罗地亚 & 斯洛文尼亚</h1>
@@ -606,10 +653,6 @@
       <div class="cover-meta-item">📅 10.02 - 10.09</div>
       <div class="cover-meta-item">✈️ 北京往返</div>
       <div class="cover-meta-item">🚗 全程自驾</div>
-    </div>
-    <div class="version-switch">
-      <a class="active" href="#">由北向南</a>
-      <a href="croatia-trip-south-to-north.html">由南向北</a>
     </div>
   </div>
   <div class="scroll-hint"><span></span></div>
@@ -670,13 +713,16 @@
 
   <div class="timeline">
 
+    <!-- Day 1 -->
     <div class="day-card fade-in">
       <div class="day-header">
         <span class="day-tag">🇸🇮 Day 1</span>
         <span class="day-date">10月2日 周四</span>
       </div>
       <h3 class="day-title">萨格勒布 → 卢布尔雅那</h3>
-      <img class="day-image" src="https://images.unsplash.com/photo-1584553412265-c03c3c526f12?w=800&q=80" alt="卢布尔雅那老城" loading="lazy">
+      <div class="day-image-wrap" style="background: linear-gradient(135deg, #4a7de4 0%, #2d5a87 100%);">
+        <img class="day-image" src="https://images.unsplash.com/photo-1584553412265-c03c3c526f12?w=800&q=80" alt="卢布尔雅那老城" onerror="this.style.opacity='0'">
+      </div>
       <p class="day-desc">上午10点抵达萨格勒布机场，取车后前往斯洛文尼亚首都。卢布尔雅那老城精致小巧，龙桥和三重桥是标志景观。</p>
       <div class="day-highlights">
         <span class="day-highlight">龙桥</span>
@@ -688,15 +734,26 @@
         <div class="day-info-item">🚗 <strong>150公里</strong> · 约1小时40分</div>
         <div class="day-info-item">⚠️ <strong>租车提醒</strong>：确认含斯洛文尼亚跨境保险</div>
       </div>
+      <div class="day-food">
+        <div class="day-food-title">🍽️ 美食推荐</div>
+        <ul class="day-food-list">
+          <li><span><span class="food-name">Gostilna na Gradu</span><div class="food-note">城堡上的景观餐厅，传统斯洛文尼亚菜</div></span><span class="food-tag">景观餐厅</span></li>
+          <li><span><span class="food-name">Julija</span><div class="food-note">老城中心人气餐厅，意式与本地融合</div></span><span class="food-tag">人气推荐</span></li>
+          <li><span><span class="food-name">Druga Violina</span><div class="food-note">社会责任餐厅，环境温馨，性价比高</div></span><span class="food-tag">特色体验</span></li>
+        </ul>
+      </div>
     </div>
 
+    <!-- Day 2 -->
     <div class="day-card fade-in">
       <div class="day-header">
         <span class="day-tag">🇸🇮 Day 2</span>
         <span class="day-date">10月3日 周五</span>
       </div>
       <h3 class="day-title">布莱德湖</h3>
-      <img class="day-image" src="https://images.unsplash.com/photo-1494500764479-0c8f2919a3d8?w=800&q=80" alt="布莱德湖" loading="lazy">
+      <div class="day-image-wrap" style="background: linear-gradient(135deg, #3d8b8b 0%, #5ab5b5 100%);">
+        <img class="day-image" src="https://images.unsplash.com/photo-1494500764479-0c8f2919a3d8?w=800&q=80" alt="布莱德湖" onerror="this.style.opacity='0'">
+      </div>
       <p class="day-desc">布莱德湖是斯洛文尼亚的标志。乘传统木船 Pletna 登湖心岛，敲响许愿钟。徒步上布莱德城堡俯瞰全景，别忘了品尝著名的布莱德奶油蛋糕。</p>
       <div class="day-highlights">
         <span class="day-highlight">Pletna木船</span>
@@ -709,15 +766,26 @@
         <div class="day-info-item">🚗 <strong>55公里</strong> · 约45分钟</div>
         <div class="day-info-item">🌅 <strong>推荐</strong>：清晨湖畔散步，雾气中的湖心岛极美</div>
       </div>
+      <div class="day-food">
+        <div class="day-food-title">🍽️ 美食推荐</div>
+        <ul class="day-food-list">
+          <li><span><span class="food-name">Slaščičarna Šmon</span><div class="food-note">发明布莱德奶油蛋糕的百年老店，必吃</div></span><span class="food-tag">必吃</span></li>
+          <li><span><span class="food-name">Restaurant 1903 Bled</span><div class="food-note">湖景 fine dining，视野一流</div></span><span class="food-tag">湖景餐厅</span></li>
+          <li><span><span class="food-name">Okarina</span><div class="food-note">亚洲融合菜系，换口味的好选择</div></span><span class="food-tag">创意融合</span></li>
+        </ul>
+      </div>
     </div>
 
+    <!-- Day 3 -->
     <div class="day-card fade-in">
       <div class="day-header">
         <span class="day-tag">🇭🇷 Day 3</span>
         <span class="day-date">10月4日 周六</span>
       </div>
       <h3 class="day-title">布莱德湖 → 扎达尔</h3>
-      <img class="day-image" src="https://images.unsplash.com/photo-1566125882500-45f4d05c97f1?w=800&q=80" alt="扎达尔海风琴" loading="lazy">
+      <div class="day-image-wrap" style="background: linear-gradient(135deg, #e86a3c 0%, #f4a261 100%);">
+        <img class="day-image" src="https://images.unsplash.com/photo-1566125882500-45f4d05c97f1?w=800&q=80" alt="扎达尔海风琴" onerror="this.style.opacity='0'">
+      </div>
       <p class="day-desc">上午布莱德湖告别，之后一路南下。今日车程最长，但抵达扎达尔后的傍晚体验绝对值得。海风琴和向太阳致敬是欧洲最有创意的海滨装置艺术。</p>
       <div class="day-highlights">
         <span class="day-highlight">海风琴</span>
@@ -729,15 +797,26 @@
         <div class="day-info-item">🚗 <strong>300公里</strong> · 约3.5-4小时</div>
         <div class="day-info-item">🌅 <strong>必做</strong>：日落时分坐在海风琴台阶上听海浪奏乐</div>
       </div>
+      <div class="day-food">
+        <div class="day-food-title">🍽️ 美食推荐</div>
+        <ul class="day-food-list">
+          <li><span><span class="food-name">Pet Bunara</span><div class="food-note">老城米其林推荐，现代地中海料理</div></span><span class="food-tag">米其林推荐</span></li>
+          <li><span><span class="food-name">Kornat</span><div class="food-note">海滨老牌海鲜餐厅，风景与口味兼具</div></span><span class="food-tag">海鲜</span></li>
+          <li><span><span class="food-name">Bruschetta</span><div class="food-note">意式风味小馆，披萨和意面很受欢迎</div></span><span class="food-tag">意式</span></li>
+        </ul>
+      </div>
     </div>
 
+    <!-- Day 4 -->
     <div class="day-card fade-in">
       <div class="day-header">
         <span class="day-tag">🇭🇷 Day 4</span>
         <span class="day-date">10月5日 周日</span>
       </div>
       <h3 class="day-title">扎达尔 → 斯普利特</h3>
-      <img class="day-image" src="https://images.unsplash.com/photo-1555992336-fb0d29498b13?w=800&q=80" alt="斯普利特戴克里先宫" loading="lazy">
+      <div class="day-image-wrap" style="background: linear-gradient(135deg, #2d5a87 0%, #4a7de4 100%);">
+        <img class="day-image" src="https://images.unsplash.com/photo-1555992336-fb0d29498b13?w=800&q=80" alt="斯普利特戴克里先宫" onerror="this.style.opacity='0'">
+      </div>
       <p class="day-desc">上午补逛扎达尔老城精华，午后出发前往斯普利特。戴克里先宫是活着的罗马遗迹，宫殿地下厅、列柱廊和圣杜金教堂钟楼都是必去之处。</p>
       <div class="day-highlights">
         <span class="day-highlight">戴克里先宫</span>
@@ -749,15 +828,26 @@
         <div class="day-info-item">🚗 <strong>160公里</strong> · 约1.5小时</div>
         <div class="day-info-item">🏛️ <strong>权游取景</strong>：戴克里先宫地下厅是龙母关押龙的地方</div>
       </div>
+      <div class="day-food">
+        <div class="day-food-title">🍽️ 美食推荐</div>
+        <ul class="day-food-list">
+          <li><span><span class="food-name">Villa Spiza</span><div class="food-note">老城巷子里的人气小馆，每日菜单不同</div></span><span class="food-tag">人气小馆</span></li>
+          <li><span><span class="food-name">Konoba Matejuška</span><div class="food-note">港口边家庭酒馆，海鲜炖饭超赞</div></span><span class="food-tag">海鲜炖饭</span></li>
+          <li><span><span class="food-name">Bokeria</span><div class="food-note">地中海风格餐厅，环境好，适合晚餐</div></span><span class="food-tag">氛围餐厅</span></li>
+        </ul>
+      </div>
     </div>
 
+    <!-- Day 5 -->
     <div class="day-card fade-in">
       <div class="day-header">
         <span class="day-tag">🇭🇷 Day 5</span>
         <span class="day-date">10月6日 周一</span>
       </div>
       <h3 class="day-title">斯普利特 · 跳岛游</h3>
-      <img class="day-image" src="https://images.unsplash.com/photo-1516815231560-8f41ec531527?w=800&q=80" alt="赫瓦尔岛" loading="lazy">
+      <div class="day-image-wrap" style="background: linear-gradient(135deg, #1a8a8a 0%, #3db5b5 100%);">
+        <img class="day-image" src="https://images.unsplash.com/photo-1516815231560-8f41ec531527?w=800&q=80" alt="赫瓦尔岛" onerror="this.style.opacity='0'">
+      </div>
       <p class="day-desc">全天出海跳岛！首选赫瓦尔岛，10月初仍有渡轮运营。登岛后逛赫瓦尔老城，爬西班牙要塞俯瞰全城。布拉奇岛金角海滩也是轻松备选。</p>
       <div class="day-highlights">
         <span class="day-highlight">赫瓦尔岛</span>
@@ -769,15 +859,26 @@
         <div class="day-info-item">⛴️ <strong>船程</strong>：斯普利特→赫瓦尔约1小时</div>
         <div class="day-info-item">⚠️ <strong>注意</strong>：10月蓝洞线路可能已关闭，以赫瓦尔保底</div>
       </div>
+      <div class="day-food">
+        <div class="day-food-title">🍽️ 美食推荐（斯普利特）</div>
+        <ul class="day-food-list">
+          <li><span><span class="food-name">Zrno Soli</span><div class="food-note">码头边高档海鲜，食材新鲜，服务一流</div></span><span class="food-tag">高档海鲜</span></li>
+          <li><span><span class="food-name">Villa Spiza</span><div class="food-note">如果昨晚没吃成，今早可以来一顿早午餐</div></span><span class="food-tag">早午餐</span></li>
+          <li><span><span class="food-name">赫瓦尔岛上：Dalmatino</span><div class="food-note">岛上口碑海鲜餐厅，墨鱼饭必点</div></span><span class="food-tag">岛上推荐</span></li>
+        </ul>
+      </div>
     </div>
 
+    <!-- Day 6 -->
     <div class="day-card fade-in">
       <div class="day-header">
         <span class="day-tag">🇭🇷 Day 6</span>
         <span class="day-date">10月7日 周二</span>
       </div>
       <h3 class="day-title">斯普利特 → 杜布罗夫尼克</h3>
-      <img class="day-image" src="https://images.unsplash.com/photo-1555992336-fb0d29498b13?w=800&q=80" alt="杜布罗夫尼克" loading="lazy">
+      <div class="day-image-wrap" style="background: linear-gradient(135deg, #8b2d2d 0%, #c44536 100%);">
+        <img class="day-image" src="https://images.unsplash.com/photo-1555992336-fb0d29498b13?w=800&q=80" alt="杜布罗夫尼克" onerror="this.style.opacity='0'">
+      </div>
       <p class="day-desc">上午补逛斯普利特或睡个懒觉，之后沿欧洲最美海岸公路D8南下。途经波黑涅姆走廊，护照随身携带。沿途在Makarska等观景台停留拍照。</p>
       <div class="day-highlights">
         <span class="day-highlight">D8沿海公路</span>
@@ -789,16 +890,27 @@
         <div class="day-info-item">🚗 <strong>230公里</strong> · 约3.5小时</div>
         <div class="day-info-item">🛂 <strong>边境</strong>：经过波黑涅姆，需出示护照</div>
       </div>
+      <div class="day-food">
+        <div class="day-food-title">🍽️ 美食推荐（杜布罗夫尼克）</div>
+        <ul class="day-food-list">
+          <li><span><span class="food-name">Proto</span><div class="food-note">老城知名百年海鲜餐厅，烤龙虾必点</div></span><span class="food-tag">百年老店</span></li>
+          <li><span><span class="food-name">Lokanda Peskarija</span><div class="food-note">老港口海鲜炖饭，人气超高要排队</div></span><span class="food-tag">人气排队</span></li>
+          <li><span><span class="food-name">Barba</span><div class="food-note">街头海鲜小馆，炸鱿鱼和章鱼汉堡一绝</div></span><span class="food-tag">街头美食</span></li>
+        </ul>
+      </div>
     </div>
 
+    <!-- Day 7 -->
     <div class="day-card fade-in">
       <div class="day-header">
         <span class="day-tag">🇭🇷 Day 7</span>
         <span class="day-date">10月8日 周三</span>
       </div>
       <h3 class="day-title">杜布罗夫尼克 → 飞回萨格勒布</h3>
-      <img class="day-image" src="https://images.unsplash.com/photo-1584553412265-c03c3c526f12?w=800&q=80" alt="杜布罗夫尼克城墙" loading="lazy">
-      <p class="day-desc">上午是杜布罗夫尼克最精华的时光。走一圈古城墙，俯瞰红屋顶和亚得里亚海。午后退房前往机场，乘航班飞回萨格勒布，从容结束行程。</p>
+      <div class="day-image-wrap" style="background: linear-gradient(135deg, #b5651d 0%, #d4a373 100%);">
+        <img class="day-image" src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?w=800&q=80" alt="杜布罗夫尼克城墙" onerror="this.style.opacity='0'">
+      </div>
+      <p class="day-desc">上午是杜布罗夫尼克最精华的时光。走一圈古城墙，俯瞰红屋顶和亚得里亚海。午后退房前往机场，乘<strong>21:00航班</strong>飞回萨格勒布，当晚入住休息。</p>
       <div class="day-highlights">
         <span class="day-highlight">古城墙</span>
         <span class="day-highlight">斯特拉顿大街</span>
@@ -806,19 +918,30 @@
         <span class="day-highlight">老港口</span>
       </div>
       <div class="day-info">
-        <div class="day-info-item">✈️ <strong>杜布罗夫尼克→萨格勒布</strong> · 约1小时</div>
-        <div class="day-info-item">⏰ <strong>建议航班</strong>：下午4-6点，留足上午游览时间</div>
+        <div class="day-info-item">✈️ <strong>杜布罗夫尼克→萨格勒布</strong> · 21:00起飞，约1小时</div>
+        <div class="day-info-item">⏰ <strong>时间安排</strong>：上午城墙（2h）→ 老城午餐 → 午后 Srđ 山 → 傍晚去机场</div>
+      </div>
+      <div class="day-food">
+        <div class="day-food-title">🍽️ 美食推荐</div>
+        <ul class="day-food-list">
+          <li><span><span class="food-name">Nautika</span><div class="food-note">城墙边景观餐厅，海景配海鲜，环境顶级</div></span><span class="food-tag">顶级景观</span></li>
+          <li><span><span class="food-name">Proto</span><div class="food-note">如果没吃，午餐再来一顿，建议预约</div></span><span class="food-tag">预约推荐</span></li>
+          <li><span><span class="food-name">Mea Culpa</span><div class="food-note">老城外围披萨店，性价比高，适合赶飞机前快速解决</div></span><span class="food-tag">快捷美味</span></li>
+        </ul>
       </div>
     </div>
 
+    <!-- Day 8 -->
     <div class="day-card fade-in">
       <div class="day-header">
         <span class="day-tag">🇭🇷 Day 8</span>
         <span class="day-date">10月9日 周四</span>
       </div>
       <h3 class="day-title">萨格勒布 → 北京</h3>
-      <img class="day-image" src="https://images.unsplash.com/photo-1599577180576-4d8b53e7f9c6?w=800&q=80" alt="萨格勒布" loading="lazy">
-      <p class="day-desc">中午12点萨格勒布机场起飞，结束8天亚得里亚海之旅。如果时间充裕，可清晨简单逛上城或中央市场。</p>
+      <div class="day-image-wrap" style="background: linear-gradient(135deg, #6b4c7a 0%, #9b7bb8 100%);">
+        <img class="day-image" src="https://images.unsplash.com/photo-1599577180576-4d8b53e7f9c6?w=800&q=80" alt="萨格勒布" onerror="this.style.opacity='0'">
+      </div>
+      <p class="day-desc">中午12点萨格勒布机场起飞，结束8天亚得里亚海之旅。如果时间充裕，清晨可简单逛上城或中央市场。</p>
       <div class="day-highlights">
         <span class="day-highlight">萨格勒布上城</span>
         <span class="day-highlight">中央市场</span>
@@ -827,6 +950,14 @@
       <div class="day-info">
         <div class="day-info-item">✈️ <strong>12:00起飞</strong> · 返回北京</div>
         <div class="day-info-item">📝 <strong>提醒</strong>：提前3小时到达机场</div>
+      </div>
+      <div class="day-food">
+        <div class="day-food-title">🍽️ 美食推荐</div>
+        <ul class="day-food-list">
+          <li><span><span class="food-name">Agava</span><div class="food-note">上城创意料理，早餐和早午餐都很棒</div></span><span class="food-tag">创意早午餐</span></li>
+          <li><span><span class="food-name">Mali Bar</span><div class="food-note">温馨小酒馆，适合最后一天的轻松晚餐或早餐</div></span><span class="food-tag">温馨小馆</span></li>
+          <li><span><span class="food-name">Pod Gričkim Topom</span><div class="food-note">地道克罗地亚菜，在炮台山洞里，体验独特</div></span><span class="food-tag">独特体验</span></li>
+        </ul>
       </div>
     </div>
 
@@ -841,14 +972,14 @@
   <div class="tips-grid">
     <div class="tip-card warning fade-in">
       <div class="tip-title">⚠️ 航班预订</div>
-      <div class="tip-content">杜布罗夫尼克→萨格勒布的内陆航班是整个行程的<strong>刚性节点</strong>。10月淡季航班可能减少，务必提前在克罗地亚航空官网确认并预订。建议选下午4-6点航班，留足上午游览时间。</div>
+      <div class="tip-content">杜布罗夫尼克→萨格勒布的<strong>21:00内陆航班</strong>（10月8日）是整个行程的刚性节点。10月淡季航班可能减少，务必提前在<strong>克罗地亚航空官网</strong>确认并预订。航班飞行约1小时，当晚入住萨格勒布机场附近酒店。</div>
     </div>
 
     <div class="tip-card fade-in">
       <div class="tip-title">🚗 租车跨境</div>
       <div class="tip-content">
         <ul>
-          <li>萨格勒布机场取车，<strong>杜布罗夫尼克机场还车</strong>（异地还车约€50-100）</li>
+          <li><strong>萨格勒布取车</strong>，杜布罗夫尼克还车（异地还车约€50-100）</li>
           <li>确认租车含<strong>斯洛文尼亚跨境保险</strong></li>
           <li>克罗地亚高速需电子路票（vignette），通常租车公司已包含</li>
           <li>D8沿海公路不收费，风景更好，建议优先选择</li>
@@ -872,6 +1003,11 @@
         </ul>
       </div>
     </div>
+
+    <div class="tip-card fade-in">
+      <div class="tip-title">🍽️ 餐厅预约</div>
+      <div class="tip-content">杜布罗夫尼克的热门餐厅（如 Proto、Nautika）建议<strong>提前1-2周预约</strong>。斯普利特的 Villa Spiza 和扎达尔的 Pet Bunara 也建议晚餐时段提前预约。布莱德湖的湖景餐厅旺季同样需要预约。</div>
+    </div>
   </div>
 </section>
 
@@ -891,7 +1027,7 @@
     </div>
     <div class="checklist-item">
       <div class="checklist-check" onclick="this.classList.toggle('checked')">✓</div>
-      <div class="checklist-text"><strong>内陆航班</strong>：杜布罗夫尼克→萨格勒布 10月8日已预订</div>
+      <div class="checklist-text"><strong>内陆航班</strong>：杜布罗夫尼克→萨格勒布 10月8日 21:00 已预订</div>
     </div>
     <div class="checklist-item">
       <div class="checklist-check" onclick="this.classList.toggle('checked')">✓</div>
@@ -921,6 +1057,10 @@
       <div class="checklist-check" onclick="this.classList.toggle('checked')">✓</div>
       <div class="checklist-text"><strong>欧元现金</strong>：少量欧元备用，两国均可使用</div>
     </div>
+    <div class="checklist-item">
+      <div class="checklist-check" onclick="this.classList.toggle('checked')">✓</div>
+      <div class="checklist-text"><strong>餐厅预约</strong>：杜布罗夫尼克 Proto / Nautika 等热门餐厅已预约</div>
+    </div>
   </div>
 </section>
 
@@ -933,7 +1073,6 @@
     <a href="#itinerary" class="footer-link">每日行程</a>
     <a href="#tips" class="footer-link">行前贴士</a>
     <a href="#checklist" class="footer-link">出发清单</a>
-    <a href="croatia-trip-south-to-north.html" class="footer-link">查看由南向北版</a>
   </div>
 </footer>
 
