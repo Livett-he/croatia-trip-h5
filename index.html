@@ -379,58 +379,34 @@
     color: var(--dark);
   }
 
-  /* Photo Scroll Carousel */
-  .photo-scroll {
-    display: flex;
-    gap: 0.75rem;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    padding-bottom: 0.5rem;
-    margin-bottom: 1rem;
-    scrollbar-width: none;
-  }
-
-  .photo-scroll::-webkit-scrollbar {
-    display: none;
-  }
-
-  .photo-item {
-    flex: 0 0 auto;
-    width: 260px;
-    height: 180px;
+  .day-photo {
+    width: 100%;
+    height: 200px;
     border-radius: 12px;
     overflow: hidden;
-    scroll-snap-align: start;
+    margin-bottom: 1rem;
     position: relative;
     background-size: cover;
     background-position: center;
   }
 
-  .photo-item img {
+  .day-photo img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
   }
 
-  .photo-item .photo-label {
+  .day-photo .photo-label {
     position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
-    padding: 0.5rem 0.75rem;
-    background: linear-gradient(transparent, rgba(0,0,0,0.6));
+    padding: 0.6rem 1rem;
+    background: linear-gradient(transparent, rgba(0,0,0,0.55));
     color: #fff;
-    font-size: 0.8rem;
+    font-size: 0.85rem;
     font-weight: 500;
-  }
-
-  .photo-scroll-hint {
-    text-align: center;
-    font-size: 0.75rem;
-    color: var(--text-light);
-    margin-bottom: 0.8rem;
   }
 
   .day-desc {
@@ -690,7 +666,6 @@
     .nav-links { display: none; }
     .timeline { padding-left: 1.5rem; }
     .day-card::before { left: -1.25rem; width: 10px; height: 10px; }
-    .photo-item { width: 220px; height: 150px; }
     .day-food-list li { flex-direction: column; gap: 0.2rem; }
     .food-tag { align-self: flex-start; }
   }
@@ -754,55 +729,73 @@
   <!-- SVG Route Map -->
   <div class="route-map-wrap fade-in">
     <h3>🗺️ 整体路线图</h3>
-    <svg viewBox="0 0 700 320" xmlns="http://www.w3.org/2000/svg">
+    <svg viewBox="0 0 720 420" xmlns="http://www.w3.org/2000/svg">
       <!-- Background -->
-      <rect width="700" height="320" fill="#f0f4f8" rx="12"/>
+      <rect width="720" height="420" fill="#f0f4f8" rx="12"/>
       
-      <!-- Sea area -->
-      <path d="M 380 40 Q 450 30 520 50 Q 580 70 620 120 Q 660 180 640 250 Q 620 300 550 310 L 380 310 Z" fill="#dbeafe"/>
+      <!-- Adriatic Sea (east side) -->
+      <path d="M 440 10 Q 520 20 590 60 Q 660 110 690 190 Q 710 280 680 360 Q 660 410 600 420 L 440 420 Z" fill="#dbeafe"/>
       
-      <!-- Route line -->
-      <polyline points="140,80 220,100 280,90 360,140 420,180 520,220 580,260" 
-                fill="none" stroke="#2E5BBA" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8,4"/>
+      <!-- Simplified coastline -->
+      <path d="M 440 10 Q 435 60 445 120 Q 455 180 480 230 Q 510 280 550 310 Q 590 340 630 360 Q 660 370 680 360" 
+            fill="none" stroke="#93c5fd" stroke-width="2" stroke-linecap="round"/>
       
-      <!-- Flight line (Dubrovnik back to Zagreb) -->
-      <path d="M 520,220 Q 460,160 400,140 Q 340,120 280,100 Q 220,80 180,70 Q 140,60 140,80" 
-            fill="none" stroke="#E86A3C" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="6,3"/>
+      <!-- Slovenia-Croatia border (approximate) -->
+      <path d="M 60 100 Q 140 105 220 130 Q 280 150 340 180" 
+            fill="none" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="5,4"/>
       
-      <!-- Nodes -->
-      <circle cx="140" cy="80" r="10" fill="#2E5BBA"/>
-      <text x="140" y="65" text-anchor="middle" font-size="11" fill="#333" font-weight="bold">萨格勒布</text>
-      <text x="140" y="108" text-anchor="middle" font-size="9" fill="#666">Day 1取车</text>
+      <!-- Drive route: Zagreb -> Ljubljana -> Bled -> Zadar -> Split -> Dubrovnik -->
+      <!-- Coords: Zagreb(300,150) Ljubljana(150,110) Bled(80,80) Zadar(220,220) Split(360,260) Dubrovnik(540,320) -->
+      <polyline points="300,150 150,110 80,80 220,220 360,260 540,320" 
+                fill="none" stroke="#2E5BBA" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
       
-      <circle cx="220" cy="100" r="10" fill="#4a7de4"/>
-      <text x="220" y="85" text-anchor="middle" font-size="11" fill="#333" font-weight="bold">卢布尔雅那</text>
-      <text x="220" y="128" text-anchor="middle" font-size="9" fill="#666">Day 1</text>
+      <!-- Flight route: Dubrovnik -> Zagreb -->
+      <path d="M 540,320 Q 450,260 400,210 Q 350,180 300,150" 
+            fill="none" stroke="#E86A3C" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="6,4"/>
       
-      <circle cx="280" cy="90" r="10" fill="#3d8b8b"/>
-      <text x="280" y="75" text-anchor="middle" font-size="11" fill="#333" font-weight="bold">布莱德湖</text>
-      <text x="280" y="118" text-anchor="middle" font-size="9" fill="#666">Day 2</text>
+      <!-- Zagreb -->
+      <circle cx="300" cy="150" r="10" fill="#2E5BBA"/>
+      <text x="300" y="130" text-anchor="middle" font-size="11" fill="#333" font-weight="bold">萨格勒布</text>
+      <text x="300" y="172" text-anchor="middle" font-size="9" fill="#666">Day 1取车 / Day 8飞回</text>
       
-      <circle cx="360" cy="140" r="10" fill="#e86a3c"/>
-      <text x="360" y="125" text-anchor="middle" font-size="11" fill="#333" font-weight="bold">扎达尔</text>
-      <text x="360" y="168" text-anchor="middle" font-size="9" fill="#666">Day 3</text>
+      <!-- Ljubljana -->
+      <circle cx="150" cy="110" r="9" fill="#4a7de4"/>
+      <text x="150" y="90" text-anchor="middle" font-size="11" fill="#333" font-weight="bold">卢布尔雅那</text>
+      <text x="150" y="131" text-anchor="middle" font-size="9" fill="#666">Day 1</text>
       
-      <circle cx="420" cy="180" r="10" fill="#2d5a87"/>
-      <text x="420" y="165" text-anchor="middle" font-size="11" fill="#333" font-weight="bold">斯普利特</text>
-      <text x="420" y="208" text-anchor="middle" font-size="9" fill="#666">Day 4-5</text>
+      <!-- Bled -->
+      <circle cx="80" cy="80" r="9" fill="#3d8b8b"/>
+      <text x="80" y="60" text-anchor="middle" font-size="11" fill="#333" font-weight="bold">布莱德湖</text>
+      <text x="80" y="101" text-anchor="middle" font-size="9" fill="#666">Day 2</text>
       
-      <circle cx="520" cy="220" r="12" fill="#8b2d2d"/>
-      <text x="520" y="205" text-anchor="middle" font-size="11" fill="#333" font-weight="bold">杜布罗夫尼克</text>
-      <text x="520" y="248" text-anchor="middle" font-size="9" fill="#666">Day 5-7</text>
+      <!-- Zadar -->
+      <circle cx="220" cy="220" r="9" fill="#e86a3c"/>
+      <text x="220" y="200" text-anchor="middle" font-size="11" fill="#333" font-weight="bold">扎达尔</text>
+      <text x="220" y="241" text-anchor="middle" font-size="9" fill="#666">Day 3</text>
+      
+      <!-- Split -->
+      <circle cx="360" cy="260" r="9" fill="#2d5a87"/>
+      <text x="360" y="240" text-anchor="middle" font-size="11" fill="#333" font-weight="bold">斯普利特</text>
+      <text x="360" y="281" text-anchor="middle" font-size="9" fill="#666">Day 4</text>
+      
+      <!-- Dubrovnik -->
+      <circle cx="540" cy="320" r="11" fill="#8b2d2d"/>
+      <text x="540" y="300" text-anchor="middle" font-size="11" fill="#333" font-weight="bold">杜布罗夫尼克</text>
+      <text x="540" y="346" text-anchor="middle" font-size="9" fill="#666">Day 5-7</text>
       
       <!-- Flight icon -->
-      <text x="330" y="95" text-anchor="middle" font-size="14">✈️</text>
-      <text x="330" y="112" text-anchor="middle" font-size="9" fill="#E86A3C">21:00航班</text>
+      <text x="420" y="230" text-anchor="middle" font-size="16">✈️</text>
+      <text x="420" y="248" text-anchor="middle" font-size="9" fill="#E86A3C">21:00 返程</text>
       
       <!-- Legend -->
-      <text x="30" y="295" font-size="10" fill="#666">—— 自驾路线</text>
-      <line x1="10" y1="291" x2="25" y2="291" stroke="#2E5BBA" stroke-width="2" stroke-dasharray="4,2"/>
-      <text x="120" y="295" font-size="10" fill="#666">- - - 航班返程</text>
-      <line x1="100" y1="291" x2="115" y2="291" stroke="#E86A3C" stroke-width="1.5" stroke-dasharray="3,2"/>
+      <text x="30" y="405" font-size="10" fill="#666">—— 自驾路线</text>
+      <line x1="10" y1="401" x2="25" y2="401" stroke="#2E5BBA" stroke-width="2.5"/>
+      <text x="115" y="405" font-size="10" fill="#666">- - - 航班返程</text>
+      <line x1="95" y1="401" x2="110" y2="401" stroke="#E86A3C" stroke-width="2" stroke-dasharray="4,3"/>
+      
+      <!-- Scale -->
+      <line x1="580" y1="405" x2="680" y2="405" stroke="#999" stroke-width="1"/>
+      <text x="630" y="418" text-anchor="middle" font-size="9" fill="#999">≈ 100km</text>
     </svg>
   </div>
 
@@ -835,20 +828,9 @@
         <span class="day-date">10月2日 周四</span>
       </div>
       <h3 class="day-title">萨格勒布 → 卢布尔雅那</h3>
-      <p class="photo-scroll-hint">👈 左右滑动查看当天景点 👉</p>
-      <div class="photo-scroll">
-        <div class="photo-item" style="background: linear-gradient(135deg, #4a7de4, #2d5a87);">
-          <img src="images/ljubljana.jpg" alt="卢布尔雅那老城" loading="lazy">
-          <div class="photo-label">卢布尔雅那老城</div>
-        </div>
-        <div class="photo-item" style="background: linear-gradient(135deg, #5a9bd5, #3a7bc8);">
-          <img src="images/ljubljana.jpg" alt="龙桥" loading="lazy">
-          <div class="photo-label">龙桥</div>
-        </div>
-        <div class="photo-item" style="background: linear-gradient(135deg, #6b8cae, #4a6fa5);">
-          <img src="images/ljubljana.jpg" alt="卢布尔雅那城堡" loading="lazy">
-          <div class="photo-label">卢布尔雅那城堡</div>
-        </div>
+      <div class="day-photo" style="background: linear-gradient(135deg, #4a7de4, #2d5a87);">
+        <img src="images/ljubljana.jpg" alt="卢布尔雅那老城" loading="lazy">
+        <div class="photo-label">卢布尔雅那老城</div>
       </div>
       <p class="day-desc">上午10点抵达萨格勒布机场，取车后前往斯洛文尼亚首都。卢布尔雅那老城精致小巧，龙桥和三重桥是标志景观。</p>
       <div class="day-highlights">
@@ -878,20 +860,9 @@
         <span class="day-date">10月3日 周五</span>
       </div>
       <h3 class="day-title">布莱德湖</h3>
-      <p class="photo-scroll-hint">👈 左右滑动查看当天景点 👉</p>
-      <div class="photo-scroll">
-        <div class="photo-item" style="background: linear-gradient(135deg, #3d8b8b, #5ab5b5);">
-          <img src="images/bled2.jpg" alt="布莱德湖全景" loading="lazy">
-          <div class="photo-label">布莱德湖全景</div>
-        </div>
-        <div class="photo-item" style="background: linear-gradient(135deg, #4a9e9e, #6bc4c4);">
-          <img src="images/bled3.jpg" alt="湖心岛教堂" loading="lazy">
-          <div class="photo-label">湖心岛教堂</div>
-        </div>
-        <div class="photo-item" style="background: linear-gradient(135deg, #5a8a7a, #7ab59a);">
-          <img src="images/bled2.jpg" alt="布莱德城堡" loading="lazy">
-          <div class="photo-label">布莱德城堡</div>
-        </div>
+      <div class="day-photo" style="background: linear-gradient(135deg, #3d8b8b, #5ab5b5);">
+        <img src="images/bled2.jpg" alt="布莱德湖" loading="lazy">
+        <div class="photo-label">布莱德湖</div>
       </div>
       <p class="day-desc">布莱德湖是斯洛文尼亚的标志。乘传统木船 Pletna 登湖心岛，敲响许愿钟。徒步上布莱德城堡俯瞰全景，别忘了品尝著名的布莱德奶油蛋糕。</p>
       <div class="day-highlights">
@@ -922,20 +893,9 @@
         <span class="day-date">10月4日 周六</span>
       </div>
       <h3 class="day-title">布莱德湖 → 扎达尔</h3>
-      <p class="photo-scroll-hint">👈 左右滑动查看当天景点 👉</p>
-      <div class="photo-scroll">
-        <div class="photo-item" style="background: linear-gradient(135deg, #e86a3c, #f4a261);">
-          <img src="images/zadar.jpg" alt="海风琴" loading="lazy">
-          <div class="photo-label">海风琴</div>
-        </div>
-        <div class="photo-item" style="background: linear-gradient(135deg, #d4552a, #e88050);">
-          <img src="images/zadar2.jpg" alt="向太阳致敬" loading="lazy">
-          <div class="photo-label">向太阳致敬</div>
-        </div>
-        <div class="photo-item" style="background: linear-gradient(135deg, #c44536, #d46050);">
-          <img src="images/zadar.jpg" alt="圣多纳图斯教堂" loading="lazy">
-          <div class="photo-label">圣多纳图斯教堂</div>
-        </div>
+      <div class="day-photo" style="background: linear-gradient(135deg, #e86a3c, #f4a261);">
+        <img src="images/zadar.jpg" alt="扎达尔海风琴" loading="lazy">
+        <div class="photo-label">扎达尔海风琴</div>
       </div>
       <p class="day-desc">上午布莱德湖告别，之后一路南下。今日车程最长，但抵达扎达尔后的傍晚体验绝对值得。海风琴和向太阳致敬是欧洲最有创意的海滨装置艺术。</p>
       <div class="day-highlights">
@@ -965,20 +925,9 @@
         <span class="day-date">10月5日 周日</span>
       </div>
       <h3 class="day-title">扎达尔 → 斯普利特</h3>
-      <p class="photo-scroll-hint">👈 左右滑动查看当天景点 👉</p>
-      <div class="photo-scroll">
-        <div class="photo-item" style="background: linear-gradient(135deg, #2d5a87, #4a7de4);">
-          <img src="images/split.jpg" alt="戴克里先宫" loading="lazy">
-          <div class="photo-label">戴克里先宫</div>
-        </div>
-        <div class="photo-item" style="background: linear-gradient(135deg, #3a6a97, #5a8de4);">
-          <img src="images/split.jpg" alt="圣杜金教堂" loading="lazy">
-          <div class="photo-label">圣杜金教堂钟楼</div>
-        </div>
-        <div class="photo-item" style="background: linear-gradient(135deg, #1a4a77, #3a6dc4);">
-          <img src="images/split.jpg" alt="海滨大道" loading="lazy">
-          <div class="photo-label">海滨大道 Riva</div>
-        </div>
+      <div class="day-photo" style="background: linear-gradient(135deg, #2d5a87, #4a7de4);">
+        <img src="images/split.jpg" alt="斯普利特戴克里先宫" loading="lazy">
+        <div class="photo-label">斯普利特戴克里先宫</div>
       </div>
       <p class="day-desc">上午补逛扎达尔老城精华，午后出发前往斯普利特。戴克里先宫是活着的罗马遗迹，宫殿地下厅、列柱廊和圣杜金教堂钟楼都是必去之处。</p>
       <div class="day-highlights">
@@ -1008,24 +957,9 @@
         <span class="day-date">10月6日 周一</span>
       </div>
       <h3 class="day-title">斯普利特跳岛游 → 杜布罗夫尼克</h3>
-      <p class="photo-scroll-hint">👈 左右滑动查看当天景点 👉</p>
-      <div class="photo-scroll">
-        <div class="photo-item" style="background: linear-gradient(135deg, #1a8a8a, #3db5b5);">
-          <img src="images/split.jpg" alt="赫瓦尔岛" loading="lazy">
-          <div class="photo-label">赫瓦尔岛</div>
-        </div>
-        <div class="photo-item" style="background: linear-gradient(135deg, #0f6b6b, #2a9595);">
-          <img src="images/split.jpg" alt="西班牙要塞" loading="lazy">
-          <div class="photo-label">西班牙要塞</div>
-        </div>
-        <div class="photo-item" style="background: linear-gradient(135deg, #8b2d2d, #c44536);">
-          <img src="images/dubrovnik.jpg" alt="杜布罗夫尼克老城" loading="lazy">
-          <div class="photo-label">杜布罗夫尼克老城</div>
-        </div>
-        <div class="photo-item" style="background: linear-gradient(135deg, #a04030, #d06050);">
-          <img src="images/dubrovnik2.jpg" alt="D8沿海公路" loading="lazy">
-          <div class="photo-label">D8沿海公路</div>
-        </div>
+      <div class="day-photo" style="background: linear-gradient(135deg, #1a8a8a, #3db5b5);">
+        <img src="images/split.jpg" alt="赫瓦尔岛" loading="lazy">
+        <div class="photo-label">赫瓦尔岛跳岛游</div>
       </div>
       <p class="day-desc">上午出海跳岛首选赫瓦尔岛，下午返回斯普利特后，傍晚沿D8沿海公路南下前往杜布罗夫尼克。今日行程较满，但一路海景绝美，抵达杜城后可夜游老城。</p>
       <div class="day-highlights">
@@ -1056,24 +990,9 @@
         <span class="day-date">10月7日 周二</span>
       </div>
       <h3 class="day-title">杜布罗夫尼克</h3>
-      <p class="photo-scroll-hint">👈 左右滑动查看当天景点 👉</p>
-      <div class="photo-scroll">
-        <div class="photo-item" style="background: linear-gradient(135deg, #8b2d2d, #c44536);">
-          <img src="images/dubrovnik.jpg" alt="古城墙" loading="lazy">
-          <div class="photo-label">古城墙</div>
-        </div>
-        <div class="photo-item" style="background: linear-gradient(135deg, #a04030, #d06050);">
-          <img src="images/dubrovnik2.jpg" alt="斯特拉顿大街" loading="lazy">
-          <div class="photo-label">斯特拉顿大街</div>
-        </div>
-        <div class="photo-item" style="background: linear-gradient(135deg, #702020, #a03535);">
-          <img src="images/dubrovnik.jpg" alt="Srđ山" loading="lazy">
-          <div class="photo-label">Srđ山缆车</div>
-        </div>
-        <div class="photo-item" style="background: linear-gradient(135deg, #903535, #c05555);">
-          <img src="images/dubrovnik2.jpg" alt="老港口" loading="lazy">
-          <div class="photo-label">老港口</div>
-        </div>
+      <div class="day-photo" style="background: linear-gradient(135deg, #8b2d2d, #c44536);">
+        <img src="images/dubrovnik.jpg" alt="杜布罗夫尼克古城墙" loading="lazy">
+        <div class="photo-label">杜布罗夫尼克古城墙</div>
       </div>
       <p class="day-desc">全天留给杜布罗夫尼克最精华的体验。清晨走一圈古城墙，俯瞰红屋顶和亚得里亚海。逛斯特拉顿大街、老港口，下午乘缆车登 Srđ 山看全景，傍晚看日落。</p>
       <div class="day-highlights">
@@ -1103,20 +1022,9 @@
         <span class="day-date">10月8日 周三</span>
       </div>
       <h3 class="day-title">杜布罗夫尼克 → 飞回萨格勒布</h3>
-      <p class="photo-scroll-hint">👈 左右滑动查看当天景点 👉</p>
-      <div class="photo-scroll">
-        <div class="photo-item" style="background: linear-gradient(135deg, #b5651d, #d4a373);">
-          <img src="images/dubrovnik2.jpg" alt="古城墙晨景" loading="lazy">
-          <div class="photo-label">古城墙晨景</div>
-        </div>
-        <div class="photo-item" style="background: linear-gradient(135deg, #8b4a2a, #b57a5a);">
-          <img src="images/dubrovnik.jpg" alt="方济各修道院" loading="lazy">
-          <div class="photo-label">方济各修道院</div>
-        </div>
-        <div class="photo-item" style="background: linear-gradient(135deg, #703515, #a06545);">
-          <img src="images/dubrovnik2.jpg" alt="杜城全景" loading="lazy">
-          <div class="photo-label">杜城全景</div>
-        </div>
+      <div class="day-photo" style="background: linear-gradient(135deg, #b5651d, #d4a373);">
+        <img src="images/dubrovnik2.jpg" alt="杜布罗夫尼克全景" loading="lazy">
+        <div class="photo-label">杜布罗夫尼克全景</div>
       </div>
       <p class="day-desc">上午是杜布罗夫尼克最精华的时光。走一圈古城墙（如昨天没走），或补逛方济各修道院、大教堂。午后退房前往机场，乘<strong>21:00航班</strong>飞回萨格勒布，当晚入住休息。</p>
       <div class="day-highlights">
@@ -1145,20 +1053,9 @@
         <span class="day-date">10月9日 周四</span>
       </div>
       <h3 class="day-title">萨格勒布 → 北京</h3>
-      <p class="photo-scroll-hint">👈 左右滑动查看当天景点 👉</p>
-      <div class="photo-scroll">
-        <div class="photo-item" style="background: linear-gradient(135deg, #6b4c7a, #9b7bb8);">
-          <img src="images/zagreb.jpg" alt="萨格勒布上城" loading="lazy">
-          <div class="photo-label">萨格勒布上城</div>
-        </div>
-        <div class="photo-item" style="background: linear-gradient(135deg, #7b5c8a, #ab8bc8);">
-          <img src="images/zagreb2.jpg" alt="圣马可教堂" loading="lazy">
-          <div class="photo-label">圣马可教堂</div>
-        </div>
-        <div class="photo-item" style="background: linear-gradient(135deg, #5b3c6a, #8b5ba8);">
-          <img src="images/zagreb.jpg" alt="中央市场" loading="lazy">
-          <div class="photo-label">中央市场</div>
-        </div>
+      <div class="day-photo" style="background: linear-gradient(135deg, #6b4c7a, #9b7bb8);">
+        <img src="images/zagreb.jpg" alt="萨格勒布上城" loading="lazy">
+        <div class="photo-label">萨格勒布上城</div>
       </div>
       <p class="day-desc">中午12点萨格勒布机场起飞，结束8天亚得里亚海之旅。如果时间充裕，清晨可简单逛上城或中央市场。</p>
       <div class="day-highlights">
