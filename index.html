@@ -607,6 +607,136 @@
     color: var(--dark);
   }
 
+  /* Visa Section */
+  .visa-flow {
+    display: grid;
+    gap: 0.8rem;
+    margin-bottom: 2rem;
+  }
+
+  .flow-step {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    background: #fff;
+    border-radius: 12px;
+    padding: 1rem 1.2rem;
+    box-shadow: var(--shadow);
+  }
+
+  .flow-num {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary), #4a7de4);
+    color: #fff;
+    font-size: 0.85rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .flow-content {
+    flex: 1;
+  }
+
+  .flow-title {
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--dark);
+    margin-bottom: 0.3rem;
+  }
+
+  .flow-desc {
+    font-size: 0.85rem;
+    color: var(--text-light);
+    line-height: 1.6;
+  }
+
+  .visa-notice {
+    background: linear-gradient(135deg, #fff3cd 0%, #fff8e1 100%);
+    border: 1px solid #ffe082;
+    border-radius: 12px;
+    padding: 1rem 1.2rem;
+    margin-bottom: 1.5rem;
+    font-size: 0.85rem;
+    color: #856404;
+  }
+
+  .visa-notice strong {
+    color: #856404;
+  }
+
+  .visa-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: var(--shadow);
+    margin-bottom: 1.5rem;
+  }
+
+  .visa-card h4 {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    color: var(--dark);
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .visa-checklist-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.8rem;
+    padding: 0.7rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .visa-checklist-item:last-child {
+    border-bottom: none;
+  }
+
+  .visa-check {
+    width: 22px;
+    height: 22px;
+    border: 2px solid var(--border);
+    border-radius: 6px;
+    flex-shrink: 0;
+    margin-top: 2px;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    color: transparent;
+    user-select: none;
+  }
+
+  .visa-check.checked {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: #fff;
+  }
+
+  .visa-check-text {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  .visa-check-text strong {
+    color: var(--dark);
+  }
+
+  .visa-check-note {
+    font-size: 0.8rem;
+    color: var(--text-light);
+    margin-top: 0.15rem;
+  }
+
   .footer {
     background: var(--dark);
     color: rgba(255,255,255,0.6);
@@ -697,6 +827,7 @@
     <div class="nav-title">🇭🇷 克罗地亚 & 斯洛文尼亚</div>
     <div class="nav-links">
       <a href="#overview">概览</a>
+      <a href="#visa">签证</a>
       <a href="#itinerary">行程</a>
       <a href="#tips">贴士</a>
       <a href="#checklist">清单</a>
@@ -810,6 +941,209 @@
       <div>Day 6: 杜布罗夫尼克</div>
       <div>Day 7: 杜布罗夫尼克→飞萨格勒布</div>
       <div>Day 8: 萨格勒布</div>
+    </div>
+  </div>
+</section>
+
+<!-- Visa -->
+<section class="section" id="visa">
+  <h2 class="section-title fade-in">签证指南</h2>
+  <p class="section-subtitle fade-in">克罗地亚申根签证 · 材料清单与办理流程</p>
+
+  <div class="visa-notice fade-in">
+    <strong>⚠️ 重要提示：</strong>克罗地亚已于2023年1月加入申根区，需办理<strong>申根签证</strong>。由于行程在克罗地亚停留时间最长（含斯洛文尼亚），向<strong>克罗地亚</strong>申请。签证中心由 VFS Global 运营。
+  </div>
+
+  <div class="visa-card fade-in">
+    <h4>📋 办理流程</h4>
+    <div class="visa-flow">
+      <div class="flow-step">
+        <div class="flow-num">1</div>
+        <div class="flow-content">
+          <div class="flow-title">在线填写申请表</div>
+          <div class="flow-desc">访问 <a href="https://crovisa.mvep.hr" target="_blank" style="color:var(--primary);">crovisa.mvep.hr</a> 在线填写申根签证申请表，打印后手写签名。所有内容用拉丁字母填写，不留空项。</div>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">2</div>
+        <div class="flow-content">
+          <div class="flow-title">预约递签时间</div>
+          <div class="flow-desc">通过 VFS Global 官网预约。目前开放的签证中心：北京（每周一，需提前预约）、上海（每周二、周四）、广州（周一到周五，需提前预约）。建议提前2-3周预约。</div>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">3</div>
+        <div class="flow-content">
+          <div class="flow-title">准备全套材料</div>
+          <div class="flow-desc">按照下方材料清单逐项准备。所有材料需翻译成英文或克罗地亚语。建议出发前至少3周完成递签。</div>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">4</div>
+        <div class="flow-content">
+          <div class="flow-title">前往签证中心递交</div>
+          <div class="flow-desc">携带全套材料原件+复印件，按预约时间前往签证中心。现场采集十指指纹（近5年内采集过申根指纹的可免采），缴纳签证费+服务费。</div>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">5</div>
+        <div class="flow-content">
+          <div class="flow-title">等待审理</div>
+          <div class="flow-desc">官方审理时间约15个自然日。旺季可能延长至30天。期间可能接到领馆电话调查，保持手机畅通。</div>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">6</div>
+        <div class="flow-content">
+          <div class="flow-title">取回护照</div>
+          <div class="flow-desc">签证中心通知取件，或选择快递寄回。收到后核对签证页信息（有效期、入境次数、停留天数）。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="visa-card fade-in">
+    <h4>✅ 材料准备进度</h4>
+    <div class="visa-checklist-item">
+      <div class="visa-check" onclick="this.classList.toggle('checked')">✓</div>
+      <div class="visa-check-text">
+        <strong>护照原件</strong>
+        <div class="visa-check-note">有效期6个月以上，至少2页空白页，旧护照一并提供</div>
+      </div>
+    </div>
+    <div class="visa-checklist-item">
+      <div class="visa-check" onclick="this.classList.toggle('checked')">✓</div>
+      <div class="visa-check-text">
+        <strong>申根签证申请表</strong>
+        <div class="visa-check-note">在线填写后打印，本人手写签名</div>
+      </div>
+    </div>
+    <div class="visa-checklist-item">
+      <div class="visa-check" onclick="this.classList.toggle('checked')">✓</div>
+      <div class="visa-check-text">
+        <strong>白底证件照 2张</strong>
+        <div class="visa-check-note">35×45mm，近6个月内拍摄，不露牙</div>
+      </div>
+    </div>
+    <div class="visa-checklist-item">
+      <div class="visa-check" onclick="this.classList.toggle('checked')">✓</div>
+      <div class="visa-check-text">
+        <strong>身份证正反面复印件</strong>
+        <div class="visa-check-note">需翻译件（可自己翻译）</div>
+      </div>
+    </div>
+    <div class="visa-checklist-item">
+      <div class="visa-check" onclick="this.classList.toggle('checked')">✓</div>
+      <div class="visa-check-text">
+        <strong>户口本全本复印件</strong>
+        <div class="visa-check-note">所有有内容页均需复印，需翻译件</div>
+      </div>
+    </div>
+    <div class="visa-checklist-item">
+      <div class="visa-check" onclick="this.classList.toggle('checked')">✓</div>
+      <div class="visa-check-text">
+        <strong>近3-6个月银行流水</strong>
+        <div class="visa-check-note">工资卡优先，余额建议3-5万元以上，体现稳定收入</div>
+      </div>
+    </div>
+    <div class="visa-checklist-item">
+      <div class="visa-check" onclick="this.classList.toggle('checked')">✓</div>
+      <div class="visa-check-text">
+        <strong>在职证明（中英文）</strong>
+        <div class="visa-check-note">公司抬头纸，含职位、年薪、入职时间、准假时间、保留职位说明，盖公章</div>
+      </div>
+    </div>
+    <div class="visa-checklist-item">
+      <div class="visa-check" onclick="this.classList.toggle('checked')">✓</div>
+      <div class="visa-check-text">
+        <strong>公司营业执照复印件+翻译件</strong>
+        <div class="visa-check-note">加盖公章。部分领馆要求北京外交部认证，建议提前确认</div>
+      </div>
+    </div>
+    <div class="visa-checklist-item">
+      <div class="visa-check" onclick="this.classList.toggle('checked')">✓</div>
+      <div class="visa-check-text">
+        <strong>英文行程单</strong>
+        <div class="visa-check-note">逐日列出日期、城市、景点、交通，需合理可信</div>
+      </div>
+    </div>
+    <div class="visa-checklist-item">
+      <div class="visa-check" onclick="this.classList.toggle('checked')">✓</div>
+      <div class="visa-check-text">
+        <strong>往返机票预订单</strong>
+        <div class="visa-check-note">北京↔萨格勒布往返，可用可取消的预订</div>
+      </div>
+    </div>
+    <div class="visa-checklist-item">
+      <div class="visa-check" onclick="this.classList.toggle('checked')">✓</div>
+      <div class="visa-check-text">
+        <strong>全程酒店预订单</strong>
+        <div class="visa-check-note">覆盖每一天住宿，建议选可免费取消的</div>
+      </div>
+    </div>
+    <div class="visa-checklist-item">
+      <div class="visa-check" onclick="this.classList.toggle('checked')">✓</div>
+      <div class="visa-check-text">
+        <strong>旅行医疗保险</strong>
+        <div class="visa-check-note">保额≥30,000欧元，覆盖全部申根行程+前后各多1天，含医疗、住院、遣返</div>
+      </div>
+    </div>
+    <div class="visa-checklist-item">
+      <div class="visa-check" onclick="this.classList.toggle('checked')">✓</div>
+      <div class="visa-check-text">
+        <strong>VFS预约确认函</strong>
+        <div class="visa-check-note">官网预约后打印的确认邮件/回执</div>
+      </div>
+    </div>
+    <div class="visa-checklist-item">
+      <div class="visa-check" onclick="this.classList.toggle('checked')">✓</div>
+      <div class="visa-check-text">
+        <strong>Cover Letter（可选但推荐）</strong>
+        <div class="visa-check-note">说明旅行目的、资金来源、回国约束力，英文撰写</div>
+      </div>
+    </div>
+    <div class="visa-checklist-item">
+      <div class="visa-check" onclick="this.classList.toggle('checked')">✓</div>
+      <div class="visa-check-text">
+        <strong>辅助资产（加分项）</strong>
+        <div class="visa-check-note">房产证、车辆登记证、定期存单等复印件+翻译件</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="visa-card fade-in">
+    <h4>💰 费用参考</h4>
+    <div style="font-size: 0.9rem; color: var(--text-light); line-height: 1.8;">
+      <div style="display:flex; justify-content:space-between; padding: 0.4rem 0; border-bottom: 1px solid var(--border);">
+        <span>签证费（成人）</span><span style="font-weight:500; color:var(--text);">€90（约¥700）</span>
+      </div>
+      <div style="display:flex; justify-content:space-between; padding: 0.4rem 0; border-bottom: 1px solid var(--border);">
+        <span>VFS服务费</span><span style="font-weight:500; color:var(--text);">约¥200-300</span>
+      </div>
+      <div style="display:flex; justify-content:space-between; padding: 0.4rem 0; border-bottom: 1px solid var(--border);">
+        <span>照片（如现场拍摄）</span><span style="font-weight:500; color:var(--text);">约¥40</span>
+      </div>
+      <div style="display:flex; justify-content:space-between; padding: 0.4rem 0; border-bottom: 1px solid var(--border);">
+        <span>护照快递费</span><span style="font-weight:500; color:var(--text);">约¥60</span>
+      </div>
+      <div style="display:flex; justify-content:space-between; padding: 0.4rem 0; border-bottom: 1px solid var(--border);">
+        <span>旅行保险（8天）</span><span style="font-weight:500; color:var(--text);">约¥100-300</span>
+      </div>
+      <div style="display:flex; justify-content:space-between; padding: 0.4rem 0; font-weight:700; color:var(--dark);">
+        <span>合计约</span><span>¥1,200 - 1,500</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="visa-card fade-in">
+    <h4>📌 注意事项</h4>
+    <div style="font-size: 0.85rem; color: var(--text-light); line-height: 1.8;">
+      <p style="margin-bottom: 0.5rem;">• 出发前<strong>至少提前3周</strong>递签，建议提前4-6周开始准备</p>
+      <p style="margin-bottom: 0.5rem;">• 所有非英文材料需附<strong>英文翻译件</strong>，可以自己翻译并签名</p>
+      <p style="margin-bottom: 0.5rem;">• 银行流水<strong>不要</strong>在递签前突然大额存入，保持自然</p>
+      <p style="margin-bottom: 0.5rem;">• 行程单中的酒店、机票信息需与提供的预订单<strong>完全一致</strong></p>
+      <p style="margin-bottom: 0.5rem;">• 如之前有申根/美/加/英/澳签证，提供签证页复印件有助于提高通过率</p>
+      <p>• 领馆可能电话调查，保持手机畅通，回答与材料一致</p>
     </div>
   </div>
 </section>
