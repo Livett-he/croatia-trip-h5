@@ -843,8 +843,9 @@
   <div class="route-card fade-in">
     <div class="route-visual">
       <span class="route-city">萨格勒布</span><span class="route-arrow">→</span>
-      <span class="route-city">卢布尔雅那</span><span class="route-arrow">→</span>
       <span class="route-city">布莱德湖</span><span class="route-arrow">→</span>
+      <span class="route-city">卢布尔雅那</span><span class="route-arrow">→</span>
+      <span class="route-city">波尔托罗·皮兰</span><span class="route-arrow">→</span>
       <span class="route-city">扎达尔</span><span class="route-arrow">→</span>
       <span class="route-city">斯普利特</span><span class="route-arrow">→</span>
       <span class="route-city">杜布罗夫尼克</span><span class="route-arrow">→</span>
@@ -853,7 +854,7 @@
     <div class="route-stats">
       <div class="route-stat"><div class="route-stat-num">8</div><div class="route-stat-label">天</div></div>
       <div class="route-stat"><div class="route-stat-num">7</div><div class="route-stat-label">晚</div></div>
-      <div class="route-stat"><div class="route-stat-num">~850</div><div class="route-stat-label">公里</div></div>
+      <div class="route-stat"><div class="route-stat-num">~1100</div><div class="route-stat-label">公里</div></div>
     </div>
   </div>
 
@@ -875,9 +876,9 @@
       <path d="M 60 100 Q 140 105 220 130 Q 280 150 340 180" 
             fill="none" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="5,4"/>
       
-      <!-- Drive route: Zagreb -> Ljubljana -> Bled -> Zadar -> Split -> Dubrovnik -->
-      <!-- Coords: Zagreb(300,150) Ljubljana(150,110) Bled(80,80) Zadar(220,220) Split(360,260) Dubrovnik(540,320) -->
-      <polyline points="300,150 150,110 80,80 220,220 360,260 540,320" 
+      <!-- Drive route: Zagreb -> Bled -> Ljubljana -> Portoroz/Piran -> Zadar -> Split -> Dubrovnik -->
+      <!-- Coords: Zagreb(300,150) Bled(80,80) Ljubljana(150,110) Piran(105,178) Zadar(220,220) Split(360,260) Dubrovnik(540,320) -->
+      <polyline points="300,150 80,80 150,110 105,178 220,220 360,260 540,320" 
                 fill="none" stroke="#2E5BBA" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
       
       <!-- Flight route: Dubrovnik -> Zagreb -->
@@ -892,22 +893,27 @@
       <!-- Ljubljana -->
       <circle cx="150" cy="110" r="9" fill="#4a7de4"/>
       <text x="150" y="90" text-anchor="middle" font-size="11" fill="#333" font-weight="bold">卢布尔雅那</text>
-      <text x="150" y="131" text-anchor="middle" font-size="9" fill="#666">Day 1</text>
+      <text x="150" y="131" text-anchor="middle" font-size="9" fill="#666">Day 2 逛吃</text>
       
       <!-- Bled -->
       <circle cx="80" cy="80" r="9" fill="#3d8b8b"/>
       <text x="80" y="60" text-anchor="middle" font-size="11" fill="#333" font-weight="bold">布莱德湖</text>
-      <text x="80" y="101" text-anchor="middle" font-size="9" fill="#666">Day 2</text>
+      <text x="80" y="101" text-anchor="middle" font-size="9" fill="#666">Day 1-2</text>
+      
+      <!-- Piran / Portoroz -->
+      <circle cx="105" cy="178" r="7" fill="#c9972b"/>
+      <text x="105" y="200" text-anchor="middle" font-size="10" fill="#333" font-weight="bold">皮兰·波尔托罗</text>
+      <text x="105" y="214" text-anchor="middle" font-size="9" fill="#666">Day 2宿 / Day 3</text>
       
       <!-- Zadar -->
       <circle cx="220" cy="220" r="9" fill="#e86a3c"/>
       <text x="220" y="200" text-anchor="middle" font-size="11" fill="#333" font-weight="bold">扎达尔</text>
-      <text x="220" y="241" text-anchor="middle" font-size="9" fill="#666">Day 3</text>
+      <text x="220" y="241" text-anchor="middle" font-size="9" fill="#666">Day 3-4</text>
       
       <!-- Split -->
       <circle cx="360" cy="260" r="9" fill="#2d5a87"/>
       <text x="360" y="240" text-anchor="middle" font-size="11" fill="#333" font-weight="bold">斯普利特</text>
-      <text x="360" y="281" text-anchor="middle" font-size="9" fill="#666">Day 4</text>
+      <text x="360" y="281" text-anchor="middle" font-size="9" fill="#666">Day 4-5</text>
       
       <!-- Dubrovnik -->
       <circle cx="540" cy="320" r="11" fill="#8b2d2d"/>
@@ -933,9 +939,9 @@
   <div class="route-card fade-in">
     <h3 style="font-size: 1rem; margin-bottom: 0.8rem;">📍 每日停留</h3>
     <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.5rem; font-size: 0.85rem; color: var(--text-light);">
-      <div>Day 1: 萨格勒布→卢布尔雅那</div>
-      <div>Day 2: 布莱德湖</div>
-      <div>Day 3: 扎达尔</div>
+      <div>Day 1: 萨格勒布→布莱德湖</div>
+      <div>Day 2: 布莱德→卢布尔雅那→波尔托罗</div>
+      <div>Day 3: 皮兰→扎达尔</div>
       <div>Day 4: 斯普利特</div>
       <div>Day 5: 斯普利特→杜城</div>
       <div>Day 6: 杜布罗夫尼克</div>
@@ -1158,34 +1164,32 @@
     <!-- Day 1 -->
     <div class="day-card fade-in">
       <div class="day-header">
-        <span class="day-tag">🇭🇷🇸🇮 Day 1</span>
-        <span class="day-date">10月2日 周四</span>
+        <span class="day-tag">🇸🇮 Day 1</span>
+        <span class="day-date">10月2日 周五</span>
       </div>
-      <h3 class="day-title">萨格勒布半日 → 卢布尔雅那</h3>
-      <div class="day-photo" style="background: linear-gradient(135deg, #6b4c7a, #9b7bb8);">
-        <img src="images/zagreb.jpg" alt="萨格勒布上城" loading="lazy">
-        <div class="photo-label">萨格勒布上城</div>
+      <h3 class="day-title">落地直奔布莱德湖</h3>
+      <div class="day-photo" style="background: linear-gradient(135deg, #3d8b8b, #5ab5b5);">
+        <img src="images/bled2.jpg" alt="布莱德湖" loading="lazy">
+        <div class="photo-label">布莱德湖</div>
       </div>
-      <p class="day-desc">上午乘国航CA913抵达萨格勒布（约当地时间10:00），机场取车后先逛萨格勒布上城：圣马可教堂的彩色屋顶、石门和中央市场都值得一看。午后驱车前往卢布尔雅那，傍晚抵达后漫步老城。</p>
+      <p class="day-desc">上午乘国航CA913落地萨格勒布（约当地时间09:55），机场取车后直接上高速，直奔北部的布莱德湖（约240公里，行车2.5-3小时）。下午开始游湖：环湖漫步、乘Pletna传统木船登湖心岛敲许愿钟，上布莱德城堡俯瞰湖景，再品尝著名的布莱德奶油蛋糕。</p>
       <div class="day-highlights">
-        <span class="day-highlight">萨格勒布上城</span>
-        <span class="day-highlight">圣马可教堂</span>
-        <span class="day-highlight">石门</span>
-        <span class="day-highlight">龙桥</span>
-        <span class="day-highlight">三重桥</span>
-        <span class="day-highlight">卢布尔雅那城堡</span>
+        <span class="day-highlight">Pletna木船</span>
+        <span class="day-highlight">湖心岛</span>
+        <span class="day-highlight">布莱德城堡</span>
+        <span class="day-highlight">奶油蛋糕</span>
       </div>
       <div class="day-info">
-        <div class="day-info-item">🚶 <strong>萨格勒布</strong>：机场→上城约30分钟，老城步行游览约2-3小时</div>
-        <div class="day-info-item">🚗 <strong>150公里</strong> · 萨格勒布→卢布尔雅那约1小时40分</div>
+        <div class="day-info-item">🚗 <strong>240公里</strong> · 约2.5-3小时（机场→布莱德）</div>
         <div class="day-info-item">⚠️ <strong>租车提醒</strong>：确认含斯洛文尼亚跨境保险</div>
+        <div class="day-info-item">🌅 <strong>推荐</strong>：傍晚湖畔散步，晚霞中的湖心岛极美</div>
       </div>
       <div class="day-food">
         <div class="day-food-title">🍽️ 美食推荐</div>
         <ul class="day-food-list">
-          <li><span><span class="food-name">萨格勒布：Agava</span><div class="food-note">上城创意料理，早午餐和咖啡都很棒</div></span><span class="food-tag">创意早午餐</span></li>
-          <li><span><span class="food-name">卢布尔雅那：Gostilna na Gradu</span><div class="food-note">城堡上的景观餐厅，传统斯洛文尼亚菜</div></span><span class="food-tag">景观餐厅</span></li>
-          <li><span><span class="food-name">卢布尔雅那：Julija</span><div class="food-note">老城中心人气餐厅，意式与本地融合</div></span><span class="food-tag">人气推荐</span></li>
+          <li><span><span class="food-name">Slaščičarna Šmon</span><div class="food-note">发明布莱德奶油蛋糕的百年老店，落地第一份甜点</div></span><span class="food-tag">必吃</span></li>
+          <li><span><span class="food-name">Restaurant 1903 Bled</span><div class="food-note">湖景 fine dining，落地晚餐犒劳自己</div></span><span class="food-tag">湖景餐厅</span></li>
+          <li><span><span class="food-name">Okarina</span><div class="food-note">亚洲融合菜系，长途飞行后换口味的好选择</div></span><span class="food-tag">创意融合</span></li>
         </ul>
       </div>
     </div>
@@ -1194,31 +1198,32 @@
     <div class="day-card fade-in">
       <div class="day-header">
         <span class="day-tag">🇸🇮 Day 2</span>
-        <span class="day-date">10月3日 周五</span>
+        <span class="day-date">10月3日 周六</span>
       </div>
-      <h3 class="day-title">布莱德湖</h3>
-      <div class="day-photo" style="background: linear-gradient(135deg, #3d8b8b, #5ab5b5);">
-        <img src="images/bled2.jpg" alt="布莱德湖" loading="lazy">
-        <div class="photo-label">布莱德湖</div>
+      <h3 class="day-title">布莱德 → 卢布尔雅那逛吃 → 波尔托罗</h3>
+      <div class="day-photo" style="background: linear-gradient(135deg, #4a7de4, #2d5a87);">
+        <img src="images/ljubljana.jpg" alt="卢布尔雅那老城" loading="lazy">
+        <div class="photo-label">卢布尔雅那老城</div>
       </div>
-      <p class="day-desc">布莱德湖是斯洛文尼亚的标志。乘传统木船 Pletna 登湖心岛，敲响许愿钟。徒步上布莱德城堡俯瞰全景，别忘了品尝著名的布莱德奶油蛋糕。</p>
+      <p class="day-desc">上午留给布莱德的黄金时光：清晨湖畔散步，或前往4公里外的文特加峡谷（Vintgar Gorge）栈道徒步。下午稍晚驱车45分钟到卢布尔雅那，逛吃首都：Prešeren广场、三重桥、龙桥、中央市场，可上城堡山看全景。晚餐后驱车约1.5小时前往海滨度假小镇波尔托罗入住。</p>
       <div class="day-highlights">
-        <span class="day-highlight">Pletna木船</span>
-        <span class="day-highlight">湖心岛</span>
-        <span class="day-highlight">布莱德城堡</span>
-        <span class="day-highlight">环湖骑行</span>
-        <span class="day-highlight">奶油蛋糕</span>
+        <span class="day-highlight">文特加峡谷</span>
+        <span class="day-highlight">Prešeren广场</span>
+        <span class="day-highlight">龙桥</span>
+        <span class="day-highlight">三重桥</span>
+        <span class="day-highlight">城堡山</span>
       </div>
       <div class="day-info">
-        <div class="day-info-item">🚗 <strong>55公里</strong> · 约45分钟</div>
-        <div class="day-info-item">🌅 <strong>推荐</strong>：清晨湖畔散步，雾气中的湖心岛极美</div>
+        <div class="day-info-item">🚶 <strong>文特加峡谷</strong>：距布莱德4公里，栈道往返约1.5-2小时</div>
+        <div class="day-info-item">🚗 <strong>55公里</strong> · 约45分钟（布莱德→卢布尔雅那）</div>
+        <div class="day-info-item">🚗 <strong>130公里</strong> · 约1.5小时（卢布尔雅那→波尔托罗）</div>
       </div>
       <div class="day-food">
         <div class="day-food-title">🍽️ 美食推荐</div>
         <ul class="day-food-list">
-          <li><span><span class="food-name">Slaščičarna Šmon</span><div class="food-note">发明布莱德奶油蛋糕的百年老店，必吃</div></span><span class="food-tag">必吃</span></li>
-          <li><span><span class="food-name">Restaurant 1903 Bled</span><div class="food-note">湖景 fine dining，视野一流</div></span><span class="food-tag">湖景餐厅</span></li>
-          <li><span><span class="food-name">Okarina</span><div class="food-note">亚洲融合菜系，换口味的好选择</div></span><span class="food-tag">创意融合</span></li>
+          <li><span><span class="food-name">Gostilna na Gradu</span><div class="food-note">城堡上的景观餐厅，传统斯洛文尼亚菜</div></span><span class="food-tag">景观餐厅</span></li>
+          <li><span><span class="food-name">Julija</span><div class="food-note">老城中心人气餐厅，意式与本地融合</div></span><span class="food-tag">人气推荐</span></li>
+          <li><span><span class="food-name">Druga Violina</span><div class="food-note">社会责任餐厅，环境温馨，性价比高</div></span><span class="food-tag">特色体验</span></li>
         </ul>
       </div>
     </div>
@@ -1226,31 +1231,32 @@
     <!-- Day 3 -->
     <div class="day-card fade-in">
       <div class="day-header">
-        <span class="day-tag">🇭🇷 Day 3</span>
-        <span class="day-date">10月4日 周六</span>
+        <span class="day-tag">🇸🇮🇭🇷 Day 3</span>
+        <span class="day-date">10月4日 周日</span>
       </div>
-      <h3 class="day-title">布莱德湖 → 扎达尔</h3>
+      <h3 class="day-title">皮兰 → 扎达尔</h3>
       <div class="day-photo" style="background: linear-gradient(135deg, #e86a3c, #f4a261);">
         <img src="images/zadar.jpg" alt="扎达尔海风琴" loading="lazy">
         <div class="photo-label">扎达尔海风琴</div>
       </div>
-      <p class="day-desc">上午布莱德湖告别，之后一路南下。今日车程最长，但抵达扎达尔后的傍晚体验绝对值得。海风琴和向太阳致敬是欧洲最有创意的海滨装置艺术。</p>
+      <p class="day-desc">上午从波尔托罗驱车10分钟即到皮兰（Piran），这座威尼斯风格小城是斯洛文尼亚的海滨瑰宝：塔尔蒂尼广场、圣乔治教堂、老城墙一角，再来一顿海鲜午餐。下午过关南下，沿亚得里亚海一路行驶（约270公里，3-3.5小时），傍晚抵达扎达尔，正好赶上著名的海风琴日落。</p>
       <div class="day-highlights">
-        <span class="day-highlight">海风琴</span>
-        <span class="day-highlight">向太阳致敬</span>
-        <span class="day-highlight">圣多纳图斯教堂</span>
-        <span class="day-highlight">罗马广场</span>
+        <span class="day-highlight">塔尔蒂尼广场</span>
+        <span class="day-highlight">圣乔治教堂</span>
+        <span class="day-highlight">皮兰老城</span>
+        <span class="day-highlight">海风琴日落</span>
       </div>
       <div class="day-info">
-        <div class="day-info-item">🚗 <strong>300公里</strong> · 约3.5-4小时</div>
+        <div class="day-info-item">🚗 <strong>5公里</strong> · 约10分钟（波尔托罗→皮兰）</div>
+        <div class="day-info-item">🚗 <strong>270公里</strong> · 约3-3.5小时（皮兰→扎达尔，含过境）</div>
         <div class="day-info-item">🌅 <strong>必做</strong>：日落时分坐在海风琴台阶上听海浪奏乐</div>
       </div>
       <div class="day-food">
         <div class="day-food-title">🍽️ 美食推荐</div>
         <ul class="day-food-list">
-          <li><span><span class="food-name">Pet Bunara</span><div class="food-note">老城米其林推荐，现代地中海料理</div></span><span class="food-tag">米其林推荐</span></li>
-          <li><span><span class="food-name">Kornat</span><div class="food-note">海滨老牌海鲜餐厅，风景与口味兼具</div></span><span class="food-tag">海鲜</span></li>
-          <li><span><span class="food-name">Bruschetta</span><div class="food-note">意式风味小馆，披萨和意面很受欢迎</div></span><span class="food-tag">意式</span></li>
+          <li><span><span class="food-name">皮兰：Restaurant Pavel</span><div class="food-note">米其林推荐，斯洛文尼亚海滨创意料理</div></span><span class="food-tag">米其林推荐</span></li>
+          <li><span><span class="food-name">扎达尔：Kornat</span><div class="food-note">海滨老牌海鲜餐厅，日落后的犒劳晚餐</div></span><span class="food-tag">海鲜晚餐</span></li>
+          <li><span><span class="food-name">扎达尔：Pet Bunara</span><div class="food-note">老城现代地中海料理，氛围安静有情调</div></span><span class="food-tag">氛围餐厅</span></li>
         </ul>
       </div>
     </div>
@@ -1259,7 +1265,7 @@
     <div class="day-card fade-in">
       <div class="day-header">
         <span class="day-tag">🇭🇷 Day 4</span>
-        <span class="day-date">10月5日 周日</span>
+        <span class="day-date">10月5日 周一</span>
       </div>
       <h3 class="day-title">扎达尔 → 斯普利特</h3>
       <div class="day-photo" style="background: linear-gradient(135deg, #2d5a87, #4a7de4);">
@@ -1291,7 +1297,7 @@
     <div class="day-card fade-in">
       <div class="day-header">
         <span class="day-tag">🇭🇷 Day 5</span>
-        <span class="day-date">10月6日 周一</span>
+        <span class="day-date">10月6日 周二</span>
       </div>
       <h3 class="day-title">斯普利特跳岛游 → 杜布罗夫尼克</h3>
       <div class="day-photo" style="background: linear-gradient(135deg, #1a8a8a, #3db5b5);">
@@ -1324,7 +1330,7 @@
     <div class="day-card fade-in">
       <div class="day-header">
         <span class="day-tag">🇭🇷 Day 6</span>
-        <span class="day-date">10月7日 周二</span>
+        <span class="day-date">10月7日 周三</span>
       </div>
       <h3 class="day-title">杜布罗夫尼克</h3>
       <div class="day-photo" style="background: linear-gradient(135deg, #8b2d2d, #c44536);">
@@ -1356,7 +1362,7 @@
     <div class="day-card fade-in">
       <div class="day-header">
         <span class="day-tag">🇭🇷 Day 7</span>
-        <span class="day-date">10月8日 周三</span>
+        <span class="day-date">10月8日 周四</span>
       </div>
       <h3 class="day-title">杜布罗夫尼克 → 飞回萨格勒布</h3>
       <div class="day-photo" style="background: linear-gradient(135deg, #b5651d, #d4a373);">
@@ -1387,7 +1393,7 @@
     <div class="day-card fade-in">
       <div class="day-header">
         <span class="day-tag">🇭🇷 Day 8</span>
-        <span class="day-date">10月9日 周四</span>
+        <span class="day-date">10月9日 周五</span>
       </div>
       <h3 class="day-title">萨格勒布 → 北京</h3>
       <div class="day-photo" style="background: linear-gradient(135deg, #6b4c7a, #9b7bb8);">
